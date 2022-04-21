@@ -1,6 +1,7 @@
 npm init 
 npm i
 npm i express mysql
+npm i express mysql2
 npm i dotenv
 npm i -g serverless
 -------------------------------------
