@@ -1,0 +1,8 @@
+npm init 
+npm i
+npm i express mysql
+npm i dotenv
+npm i -g serverless
+-------------------------------------
+(download and install for deploy are lamda function into aws)
+https://awscli.amazonaws.com/AWSCLIV2.msi 

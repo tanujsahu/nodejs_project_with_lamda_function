@@ -1,0 +1,52 @@
+service: testing
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: live
+  region: ap-southeast-2
+  deploymentBucket: cloud-data-testing
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - lambda:InvokeFunction
+      Resource: "*"
+    - Effect: "Allow"
+      Action:
+        - lambda:InvokeAsync
+      Resource: "*"
+  timeout: 70
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-dotenv-plugin
+  - serverless-offline
+  # - serverless-domain-manager
+  - serverless-prune-plugin
+
+custom:
+  prune:
+    automatic: true
+    number: 3
+
+functions:
+  testing: # server less function
+    handler: index.testing # reference the file and exported method
+    events: # events trigger lambda functions
+      - http: # this is an API Gateway HTTP event trigger
+          path: /getAll # this is an API path
+          method: post # this is an API method
+          cors: true # cross origin resource source send request to any url
+  saveUser: # server less function
+    handler: index.saveUser # reference the file and exported method
+    events: # events trigger lambda functions
+      - http: # this is an API Gateway HTTP event trigger
+          path: /saveUser # this is an API path
+          method: post # this is an API method
+          cors: true # cross origin resource source send request to any url
+  getAllEmp: # server less function
+    handler: index.getAllEmp # reference the file and exported method
+    events: # events trigger lambda functions
+      - http: # this is an API Gateway HTTP event trigger
+          path: /getAllEmp # this is an API path
+          method: post # this is an API method
+          cors: true # cross origin resource source send request to any url
