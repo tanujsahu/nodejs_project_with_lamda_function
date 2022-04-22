@@ -35,7 +35,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
+var connect = require('../db/db').connect;
 var con = require('../db/db');
+//---------------------------- get all user data ------------------------
 exports.UserList = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
     var query, result;
     return __generator(this, function (_a) {
@@ -55,6 +57,7 @@ exports.UserList = function (req, res) { return __awaiter(_this, void 0, void 0,
         }
     });
 }); };
+//---------------------------- save user ------------------------
 exports.saveUser = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
     var userData, query, data;
     return __generator(this, function (_a) {
@@ -62,7 +65,7 @@ exports.saveUser = function (req, res) { return __awaiter(_this, void 0, void 0,
             case 0:
                 userData = JSON.parse(req.body);
                 console.log("saveUser controller::)", userData);
-                query = "insert into user(id,u_name,age,phone,emailId) values(".concat(userData.id, ",").concat(userData.u_name, ",").concat(userData.age, ",").concat(userData.phone, ",").concat(userData.emailId, ")");
+                query = "insert into user(id,u_name,age,phone,emailId) values(".concat(userData.id, ",'").concat(userData.u_name, "',").concat(userData.age, ",").concat(userData.phone, ",'").concat(userData.emailId, "')");
                 return [4 /*yield*/, con.query(query).then(function (obj) {
                         console.log("1 record inserted", obj[0]);
                         return obj[0];
@@ -73,16 +76,52 @@ exports.saveUser = function (req, res) { return __awaiter(_this, void 0, void 0,
             case 1:
                 data = _a.sent();
                 console.log("datataaaa", data);
-                return [2 /*return*/, data
-                    // const result = await con.query(query).then((data) => {
-                    //     console.log("saveUser success", data)
-                    //     return data;
-                    // }).catch((err) => {
-                    //     console.log("erro", err)
-                    //     return err;
-                    // });
-                    // return result;
-                ];
+                return [2 /*return*/, data];
+        }
+    });
+}); };
+//---------------------------- update user data ------------------------
+exports.updateUser = function (req) { return __awaiter(_this, void 0, void 0, function () {
+    var userData, query, data;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                userData = JSON.parse(req.body);
+                console.log("update user::", userData);
+                query = "update user set u_name=".concat(userData.u_name, " where id='").concat(userData.id, "'");
+                return [4 /*yield*/, con.query(query).then(function (obj) {
+                        console.log("updatedd", obj);
+                        return obj;
+                    }).catch(function (err) {
+                        console.log("error!!", err);
+                        return err;
+                    })];
+            case 1:
+                data = _a.sent();
+                console.log("datataaaa", data);
+                return [2 /*return*/, data];
+        }
+    });
+}); };
+//---------------------------- delete user ------------------------
+exports.deleteUser = function (req) { return __awaiter(_this, void 0, void 0, function () {
+    var userId, query, data;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                userId = JSON.parse(req.body);
+                console.log("User ID:)", userId);
+                query = "delete from user where id = '".concat(userId.id, "'");
+                return [4 /*yield*/, con.query(query).then(function (obj) {
+                        console.log("Deleted Success !!", obj);
+                        return obj;
+                    }).catch(function (err) {
+                        console.log("error!", err);
+                        return err;
+                    })];
+            case 1:
+                data = _a.sent();
+                return [2 /*return*/, data];
         }
     });
 }); };

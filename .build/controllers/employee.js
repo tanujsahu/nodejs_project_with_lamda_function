@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 var con = require('../db/db');
+//--------------------- get all employee data ---------------------
 exports.EmpList = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
     var query, result;
     return __generator(this, function (_a) {

@@ -37,8 +37,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var _this = this;
 var responseMessage = require('./utils/responseMessage');
 var parseBody = require('./utils/parseBody');
-var Test = require('./controllers/user');
+var User = require('./controllers/user');
 var Emp = require('./controllers/employee');
+//---------------------- USER ---------------------------
 exports.testing = function (event) { return __awaiter(_this, void 0, void 0, function () {
     var data, err_1;
     return __generator(this, function (_a) {
@@ -48,7 +49,7 @@ exports.testing = function (event) { return __awaiter(_this, void 0, void 0, fun
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, Test.UserList(event)];
+                return [4 /*yield*/, User.UserList(event)];
             case 2:
                 data = _a.sent();
                 console.log("data:response)__", data);
@@ -70,7 +71,7 @@ exports.saveUser = function (event) { return __awaiter(_this, void 0, void 0, fu
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, Test.saveUser(event)];
+                return [4 /*yield*/, User.saveUser(event)];
             case 2:
                 data = _a.sent();
                 console.log("saveUser:response)__", data);
@@ -83,8 +84,54 @@ exports.saveUser = function (event) { return __awaiter(_this, void 0, void 0, fu
         }
     });
 }); };
-exports.getAllEmp = function (event) { return __awaiter(_this, void 0, void 0, function () {
+exports.updateUser = function (event) { return __awaiter(_this, void 0, void 0, function () {
     var data, err_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                console.log("update user", event);
+                _a.label = 1;
+            case 1:
+                _a.trys.push([1, 3, , 4]);
+                return [4 /*yield*/, User.updateUser(event)];
+            case 2:
+                data = _a.sent();
+                console.log("updateUser : response)__", data);
+                return [2 /*return*/, responseMessage(null, data)];
+            case 3:
+                err_3 = _a.sent();
+                console.log("updateUser Error::index.js))", err_3);
+                return [2 /*return*/, responseMessage(err_3, null)];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
+//------------- delete user 
+exports.deleteUser = function (event) { return __awaiter(_this, void 0, void 0, function () {
+    var data, err_4;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                console.log("delete user", event);
+                _a.label = 1;
+            case 1:
+                _a.trys.push([1, 3, , 4]);
+                return [4 /*yield*/, User.deleteUser(event)];
+            case 2:
+                data = _a.sent();
+                console.log("delete user response__", data);
+                return [2 /*return*/, responseMessage(null, data)];
+            case 3:
+                err_4 = _a.sent();
+                console.log("deleteUser Error::index.js))", err_4);
+                return [2 /*return*/, responseMessage(err_4, null)];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
+//---------------------- EMPLOYEE ---------------------------
+exports.getAllEmp = function (event) { return __awaiter(_this, void 0, void 0, function () {
+    var data, err_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -98,9 +145,9 @@ exports.getAllEmp = function (event) { return __awaiter(_this, void 0, void 0, f
                 console.log("data:response)__", data);
                 return [2 /*return*/, responseMessage(null, data)];
             case 3:
-                err_3 = _a.sent();
-                console.log("Error::index.js))", err_3);
-                return [2 /*return*/, responseMessage(err_3, null)];
+                err_5 = _a.sent();
+                console.log("Error::index.js))", err_5);
+                return [2 /*return*/, responseMessage(err_5, null)];
             case 4: return [2 /*return*/];
         }
     });

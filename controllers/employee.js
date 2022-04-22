@@ -1,5 +1,6 @@
 const con = require('../db/db')
 
+//--------------------- get all employee data ---------------------
 exports.EmpList = async (req, res) => {
     const query = "select * from emp";
     const result = await con.query(query).then((data) => {
