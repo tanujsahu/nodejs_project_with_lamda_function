@@ -62,6 +62,7 @@ exports.testing = function (event) { return __awaiter(_this, void 0, void 0, fun
         }
     });
 }); };
+//----------------- save user
 exports.saveUser = function (event) { return __awaiter(_this, void 0, void 0, function () {
     var data, err_2;
     return __generator(this, function (_a) {
@@ -84,6 +85,7 @@ exports.saveUser = function (event) { return __awaiter(_this, void 0, void 0, fu
         }
     });
 }); };
+//---------- update user 
 exports.updateUser = function (event) { return __awaiter(_this, void 0, void 0, function () {
     var data, err_3;
     return __generator(this, function (_a) {
@@ -148,6 +150,52 @@ exports.getAllEmp = function (event) { return __awaiter(_this, void 0, void 0, f
                 err_5 = _a.sent();
                 console.log("Error::index.js))", err_5);
                 return [2 /*return*/, responseMessage(err_5, null)];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
+//--------------- save employee --------
+exports.saveEmp = function (event) { return __awaiter(_this, void 0, void 0, function () {
+    var data, err_6;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                console.log("save employee api!!!");
+                _a.label = 1;
+            case 1:
+                _a.trys.push([1, 3, , 4]);
+                return [4 /*yield*/, Emp.saveEmp(event)];
+            case 2:
+                data = _a.sent();
+                console.log("dataa::", data);
+                return [2 /*return*/, responseMessage(null, data)];
+            case 3:
+                err_6 = _a.sent();
+                console.log("err::", err_6);
+                return [2 /*return*/, responseMessage(err_6, null)];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
+//------------------ update Employee 
+exports.updateEmp = function (event) { return __awaiter(_this, void 0, void 0, function () {
+    var data, err_7;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                console.log("Update Employee!!");
+                _a.label = 1;
+            case 1:
+                _a.trys.push([1, 3, , 4]);
+                return [4 /*yield*/, Emp.updateEmp(event)];
+            case 2:
+                data = _a.sent();
+                console.log("dataa::", data);
+                return [2 /*return*/, responseMessage(null, data)];
+            case 3:
+                err_7 = _a.sent();
+                console.log("err::", err_7);
+                return [2 /*return*/, responseMessage(err_7, null)];
             case 4: return [2 /*return*/];
         }
     });

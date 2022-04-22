@@ -1,4 +1,3 @@
-const { connect } = require('../db/db');
 const con = require('../db/db')
 
 //---------------------------- get all user data ------------------------

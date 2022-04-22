@@ -56,4 +56,48 @@ exports.EmpList = function (req, res) { return __awaiter(_this, void 0, void 0, 
         }
     });
 }); };
+//--------------------- save employee data --------------------- 
+exports.saveEmp = function (req) { return __awaiter(_this, void 0, void 0, function () {
+    var empData, query, result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                empData = JSON.parse(req.body);
+                console.log("emp save::", empData);
+                query = "insert into emp(id,emp_name,city) values(".concat(empData.id, ",'").concat(empData.emp_name, "','").concat(empData.city, "')");
+                return [4 /*yield*/, con.query(query).then(function (data) {
+                        console.log("ddddd", data[0]);
+                        return data[0];
+                    }).catch(function (err) {
+                        console.log("erro", err);
+                        return err;
+                    })];
+            case 1:
+                result = _a.sent();
+                return [2 /*return*/, result];
+        }
+    });
+}); };
+//--------------------- update employee data -----------------
+exports.updateEmp = function (req) { return __awaiter(_this, void 0, void 0, function () {
+    var empData, query, result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                empData = JSON.parse(req.body);
+                console.log("emp save::", empData);
+                query = "update emp set emp_name='".concat(empData.emp_name, "' where id='").concat(empData.id, "'");
+                return [4 /*yield*/, con.query(query).then(function (data) {
+                        console.log("update emp work::", data);
+                        return data;
+                    }).catch(function (err) {
+                        console.log("error :", err);
+                        return err;
+                    })];
+            case 1:
+                result = _a.sent();
+                return [2 /*return*/, result];
+        }
+    });
+}); };
 //# sourceMappingURL=employee.js.map

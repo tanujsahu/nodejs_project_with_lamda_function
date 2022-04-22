@@ -16,7 +16,7 @@ exports.testing = async (event) => {
     return responseMessage(err, null)
   }
 };
-
+//----------------- save user
 exports.saveUser = async (event) => {
   console.log("saveUser api Call!!");
   try {
@@ -28,7 +28,7 @@ exports.saveUser = async (event) => {
     return responseMessage(err, null)
   }
 };
-
+//---------- update user 
 exports.updateUser = async (event) => {
   console.log("update user", event);
   try {
@@ -67,3 +67,30 @@ exports.getAllEmp = async (event) => {
     return responseMessage(err, null)
   }
 };
+
+//--------------- save employee --------
+exports.saveEmp = async (event) => {
+  console.log("save employee api!!!");
+  try {
+    const data = await Emp.saveEmp(event);
+    console.log("dataa::", data);
+    return responseMessage(null, data);
+  }
+  catch (err) {
+    console.log("err::", err);
+    return responseMessage(err, null);
+  }
+}
+//------------------ update Employee 
+exports.updateEmp = async (event) => {
+  console.log("Update Employee!!");
+  try {
+    const data = await Emp.updateEmp(event);
+    console.log("dataa::", data);
+    return responseMessage(null, data);
+  }
+  catch (err) {
+    console.log("err::", err);
+    return responseMessage(err, null);
+  }
+}

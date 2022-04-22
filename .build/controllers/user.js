@@ -35,7 +35,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-var connect = require('../db/db').connect;
 var con = require('../db/db');
 //---------------------------- get all user data ------------------------
 exports.UserList = function (req, res) { return __awaiter(_this, void 0, void 0, function () {

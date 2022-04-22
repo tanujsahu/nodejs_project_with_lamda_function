@@ -34,7 +34,7 @@ functions:
     events: # events trigger lambda functions
       - http: # this is an API Gateway HTTP event trigger
           path: /getAll # this is an API path
-          method: post # this is an API method
+          method: get # this is an API method
           cors: true # cross origin resource source send request to any url
   saveUser: # server less function
     handler: index.saveUser # reference the file and exported method
@@ -62,5 +62,19 @@ functions:
     events: # events trigger lambda functions
       - http: # this is an API Gateway HTTP event trigger
           path: /getAllEmp # this is an API path
+          method: get # this is an API method
+          cors: true # cross origin resource source send request to any url
+  saveEmp: # server less function
+    handler: index.saveEmp # reference the file and exported method
+    events: # events trigger lambda functions
+      - http: # this is an API Gateway HTTP event trigger
+          path: /saveEmp # this is an API path
           method: post # this is an API method
           cors: true # cross origin resource source send request to any url
+  updateEmp: #server less function
+    handler: index.updateEmp
+    events: 
+      - http: 
+          path: /updateEmp
+          method: post
+          cors: true
