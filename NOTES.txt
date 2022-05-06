@@ -4,6 +4,13 @@ npm i express mysql
 npm i express mysql2
 npm i dotenv
 npm i -g serverless
+npm i serverless-http
+ npm run start-lamda    //----------- 
+
 -------------------------------------
 (download and install for deploy are lamda function into aws)
 https://awscli.amazonaws.com/AWSCLIV2.msi 
+.aws this file is inside (C:\Users\admin\.aws)
+
+ http://localhost:3000/dev/getAllEmp   
+ url request :// ip Or host : port / stage / apiurl

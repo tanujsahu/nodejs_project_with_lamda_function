@@ -2,7 +2,7 @@ service: testing
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: live
+  stage: dev
   region: ap-southeast-2
   deploymentBucket: cloud-data-testing
   iamRoleStatements:
@@ -17,7 +17,7 @@ provider:
   timeout: 70
 
 plugins:
-  - serverless-plugin-typescript
+  # - serverless-plugin-typescript
   - serverless-dotenv-plugin
   - serverless-offline
   # - serverless-domain-manager

@@ -3,7 +3,8 @@ const responseMessage = require('./utils/responseMessage');
 const parseBody = require('./utils/parseBody');
 const User = require('./controllers/user');
 const Emp = require('./controllers/employee');
-
+const Testing = require('./controllers/testing');
+const serverless=require('serverless-http')
 //---------------------- USER ---------------------------
 exports.testing = async (event) => {
   console.log("api Call!!");
@@ -94,3 +95,16 @@ exports.updateEmp = async (event) => {
     return responseMessage(err, null);
   }
 }
+
+//---------------------- Get All Testing ---------------------------
+exports.getAllTesting = async (event) => {
+  console.log("api Call!!");
+  try {
+    const data = await Testing.getAllTesting(event)
+    console.log("data:response)__", data);
+    return responseMessage(null, data)
+  } catch (err) {
+    console.log("Error::index.js))", err);
+    return responseMessage(err, null)
+  }
+};
